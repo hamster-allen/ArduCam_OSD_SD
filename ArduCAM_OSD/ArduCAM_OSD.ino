@@ -168,9 +168,9 @@ void loop()
 
     if(enable_mav_request == 1){//Request rate control
         osd.clear();
-        osd.setPanel(3,10);
+        osd.setPanel(10,10);
         osd.openPanel();
-        osd.printf_P(PSTR("Requesting DataStreams...")); 
+        osd.printf_P(PSTR("\x42\x43\x4a\x4b\x41\x2e\x2e\x2e")); 
         osd.closePanel();
         for(int n = 0; n < 3; n++){
             request_mavlink_rates();//Three times to certify it will be readed

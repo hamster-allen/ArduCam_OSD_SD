@@ -13,7 +13,7 @@ void panLogo(){
     osd.openPanel();
 //    osd.printf_P(PSTR("SD Model.tw|by Allen Tseng|2024.5"));
     osd.printf_P(PSTR("\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7|"));
-    osd.printf_P(PSTR("\xee\xef\x20\xf8\xf9\xf0\x20\xf8\xfa\xfc"));
+    osd.printf_P(PSTR("\xee\xef\x20\xf8\xf9\xf0\x20\xf8\xfa\xfc|\x76\x31\x2e\x30"));
     osd.closePanel();
 }
 
@@ -369,7 +369,7 @@ void panOff(){
   osd.setPanel(first_col, first_line);
   osd.openPanel();
 
-  osd.printf("%c%c%2.0f%c|%c%c%2.0f%c|%c%c%4.0i%c|%c%c%4.0i%c|%c%c%3.0f%c|%c%c%3.0f%c|%c%c%4.0f%c", 0x4E, 0x52, (nav_roll), 0xB0, 0x4E, 0x50, (nav_pitch), 0xB0, 0x4E, 0x48, (nav_bearing), 0xB0, 0x54, 0x42, (wp_target_bearing), 0xB0, 0x41, 0x45, (alt_error * converth), high, 0x58, 0x45, (xtrack_error), 0x6D, 0x41, 0x45, ((aspd_error / 100.0) * converts), spe);
+  osd.printf("%c%c%2.0f%c|%c%c%2.0f%c|%c%c%4.0i%c|%c%c%4.0i%c|%c%c%3.0f%c|%c%c%3.0f%c|%c%c%4.0f%c", 0x6E, 0x72, (nav_roll), 0xB0, 0x6E, 0x70, (nav_pitch), 0xB0, 0x6E, 0x68, (nav_bearing), 0xB0, 0x74, 0x62, (wp_target_bearing), 0xB0, 0x61, 0x65, (alt_error * converth), high, 0x78, 0x65, (xtrack_error), 0x6D, 0x61, 0x65, ((aspd_error / 100.0) * converts), spe);
 
   osd.closePanel();
 }
@@ -384,7 +384,7 @@ void panOff(){
 void panCur_A(int first_col, int first_line){
     osd.setPanel(first_col, first_line);
     osd.openPanel();
-    osd.printf("%c%5.2f%c", 0xcc, (float(osd_curr_A) * .01), 0x8F);
+    osd.printf("%c%5.2f%c", 0xcc, (float(osd_curr_A) * .01), 0x61);
     osd.closePanel();
 }
 
@@ -672,7 +672,7 @@ void panBatt_A(int first_col, int first_line){
         osd.printf(" %c%5.2f%c", 0xcb, (double)osd_vbat_A, 0x8E);
     else osd.printf("%c%5.2f%c%c", 0xcb, (double)osd_vbat_A, 0x8E, osd_battery_pic_A);
     */
-    osd.printf("%c%5.2f%c", 0xcb, (double)osd_vbat_A, 0x8E);
+    osd.printf("%c%5.2f%c", 0xcb, (double)osd_vbat_A, 0x76);
     osd.closePanel();
 }
 
@@ -682,7 +682,7 @@ void panWaitMAVBeats(int first_col, int first_line){
     panLogo();
     osd.setPanel(first_col, first_line);
     osd.openPanel();
-    osd.printf_P(PSTR("Waiting for|MAVLink heartbeats..."));
+    osd.printf_P(PSTR("\x20\x20\x20\x48\x49\x6d\x61\x76\x6c\x69\x6e\x6b\x44\x45\x46\x2e\x2e\x2e"));
     osd.closePanel();
 }
 
@@ -777,7 +777,8 @@ void panRose(int first_col, int first_line){
 void panBoot(int first_col, int first_line){
     osd.setPanel(first_col, first_line);
     osd.openPanel();
-    osd.printf_P(PSTR("Booting up: [________]")); 
+    // osd.printf_P(PSTR("Booting up: [________]")); 
+    osd.printf_P(PSTR("\x20\x20\x20\x47\x80\x41\x3a\x20\x5b\x5f\x5f\x5f\x5f\x5f\x5f\x5f\x5f\x5d")); 
     osd.closePanel();
 }
 
@@ -831,7 +832,7 @@ void panWPDir(int first_col, int first_line){
 void panWPDis(int first_col, int first_line){
     osd.setPanel(first_col, first_line);
     osd.openPanel();
-      osd.printf("%c%2i%c%4.0f%c",0x57,wp_number,0x0,(double)((float)(wp_dist) * converth),high);
+      osd.printf("%c%2i%c%4.0f%c",0x77,wp_number,0x0,(double)((float)(wp_dist) * converth),high);
     osd.closePanel();
 }
 
@@ -1061,7 +1062,7 @@ void do_converts()
         converts = 3.6;
         converth = 1.0;
         spe = 0x81;
-        high = 0x8D;
+        high = 0x6D;
     } else {
         converts = 2.23;
         converth = 3.28;

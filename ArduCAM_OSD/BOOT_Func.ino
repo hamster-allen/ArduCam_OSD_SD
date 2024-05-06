@@ -10,7 +10,7 @@
 // After that, it continue in normal mode eg starting to listen MAVLink commands
 
 #define barX 5
-#define barY 12
+#define barY 10
 
 void loadBar() { //change name due we don't have CLI anymore
   int waitTimer;
@@ -29,7 +29,7 @@ void loadBar() { //change name due we don't have CLI anymore
     if(waitTimer % (BOOTTIME / 8) == 0) {
       
       // Update bar it self
-      osd.setPanel(barX + 13 + barStep, barY);
+      osd.setPanel(barX + 9 + barStep, barY);
       osd.openPanel();
       osd.printf_P(PSTR("\xfd"));
       osd.closePanel();
